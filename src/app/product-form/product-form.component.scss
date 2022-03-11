@@ -1,0 +1,46 @@
+form{
+    max-width: 50vw;
+}
+    .fc-inner {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 24px;
+        .fc-fields {
+            display: flex;
+            flex-direction: column;
+        }
+        .img-layout {
+            margin: 12px;
+            background-color: #e4f8fb;
+            display: grid;
+            place-content: center;
+            place-items: center;
+            height: 200px;
+            border-radius: 14px;
+            border: 2px dashed #2f4f4fa1;
+            color: #3e8b8b;
+            cursor: pointer;
+            img {
+                width: 60px;
+                margin-bottom: 18px;
+
+            }
+            h4{
+                text-align: center;
+            }
+        }
+    }
+
+    @media (max-width: 481px) {
+        /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+        
+        .fc-inner{
+            grid-template-columns: none;
+        }
+        form{
+            max-width: 70vw;
+        }
+    }
+    @media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+    @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+    @media (min-width:1281px) { /* hi-res laptops and desktops */ }

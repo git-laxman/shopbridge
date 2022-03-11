@@ -1,0 +1,23 @@
+<div class="toolbar" role="banner">
+    <h2>ShopBridge</h2>    
+</div>
+
+<div class="route-card-holder">
+    
+    <div class="route-card" [routerLink]="['/list']" routerLinkActive="active">
+        <img src="assets/inventory.png">
+        <div>
+            <h4>Inventory</h4>
+            <p>View/edit/delete an item in the inventory</p>
+        </div>
+    </div>
+    <div class="route-card" [routerLink]="['/product']" routerLinkActive="active">
+        <img src="assets/add-product.png">
+        <div>
+            <h4>Add Item</h4>
+            <p>Click here to add a new item to the inventory</p>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

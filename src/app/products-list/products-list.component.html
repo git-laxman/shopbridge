@@ -1,0 +1,35 @@
+<div>
+    <h2 class="h-title">List of all the items in the inventory</h2>
+</div>
+<div class="product-holder" *ngIf="productsList">
+    <!-- Product Card -->
+    <div class="prod-card" *ngFor="let item of productsList">
+        <img [src]="item.image">
+        <h3 style="margin-bottom: 4px;">{{item.name}}</h3>
+        <p class="desc-default" [class.desc]="isReadMore != item.id">{{item.description}}</p>
+        <span class="expander" (click)="readMoreFunction(item.id)">
+            <ng-container *ngIf="isReadMore != item.id; else elseTemplate">
+                Readmore
+            </ng-container>
+            <ng-template #elseTemplate>
+                Readless
+            </ng-template>
+            
+        </span>
+        <div class="bottom-bar">
+            <p class="price">{{item.price | currency:"INR":"symbol"}}</p>
+            <!-- action buttons for edit and delete -->
+            <div>
+                <button mat-icon-button color="primary">
+                    <mat-icon style="color: #2f4f4f;" (click)="openDialog(item)">edit</mat-icon>
+                </button>
+                <button mat-icon-button color="accent" [swal]="deleteSwal">
+                    <mat-icon style="color: #fd4956;">delete</mat-icon>
+                </button>
+                <swal #deleteSwal title="Delete {{item.name}}?" text="This cannot be undone" icon="question" [showCancelButton]="true"
+                    [focusCancel]="true" confirmButtonColor="#fd4956" confirmButtonText="Delete" (confirm)="deleteFile(item.id)">
+                </swal>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<h2 class="ed-title">Edit Item Details
+    <button (click)="onNoClick()" mat-icon-button color="accent">
+        <mat-icon style="color: #fd4956;">close</mat-icon>
+    </button>
+</h2>
+<!-- Product form component using for edit -->
+<app-product-form [editData]="data" (savedEvent)="dialogRef.close('saved')"></app-product-form>

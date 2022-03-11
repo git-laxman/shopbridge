@@ -1,0 +1,46 @@
+<form [formGroup]="productform" #formGroupDirective="ngForm"  (ngSubmit)="onSubmit(formGroupDirective)">
+    <div class="fc-inner">
+        <div>
+            <div *ngIf="!imgUrl" class="img-layout" (click)="imgip.click()">
+                <img src="assets/page.png">
+                <h4>+ Choose Photo Product*</h4>
+            </div>
+            <p *ngIf="!imgUrl" style="    margin-left: 12px;
+            color: gray;
+            font-size: 12px;
+        ">Please upload images of type jpeg or png only.</p>
+            <div>
+                <input type="file" accept="image/jpeg, image/png" #imgip style="display: none;"
+                    (change)="onChangeImage($event)" formControlName="img">
+            </div>
+            <div *ngIf="imgUrl">
+                <img [src]="imgUrl" style="width: 100%;">
+                <div style="display: flex;justify-content: center;margin-top: 4px;">
+                    <button mat-flat-button type="button" (click)="imgip.click()"
+                        style="background-color: darkslategrey;color: white;">Upload another image</button>
+                </div>
+            </div>
+        </div>
+        <div class="fc-fields">
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name of the item" formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Description of the prodcut" rows="4"
+                    formControlName="description"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Price(₹)</mat-label>
+                <input matInput type="number" placeholder="Ex: ₹100" formControlName="price">
+            </mat-form-field>
+            <div style="display: flex;justify-content: right;">
+                <button mat-flat-button type="submit"
+                    style="background-color: darkslategrey;color: white;">Save</button>
+            </div>
+        </div>
+    </div>
+
+</form>

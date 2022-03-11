@@ -1,0 +1,67 @@
+.toolbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkslategrey;
+}
+.toolbar h2 {
+    margin: 0 16px;
+    color: wheat;
+    font-size: 26px;
+}
+.route-card-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 30px;
+}
+.route-card {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 24px;
+    padding: 16px;
+    border: 1px solid #e1e1e1;
+    box-shadow: 1px 2px 18px -12px darkslategrey;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        background-color: #53e3e31a;
+        border: 1px solid #2f4f4f;
+    }
+    img {
+        width: 80px;
+        margin-right: 16px;
+    }
+    h4 {
+        margin: 0;
+        text-transform: uppercase;
+        color: darkslategrey;
+    }
+    p {
+        margin-bottom: 0px;
+        margin-top: 6px;
+        font-size: 12px;
+        color: darkslategrey;
+    }
+}
+.active {
+    background-color: #53e3e31a;
+    border: 1px solid #2f4f4f;
+}
+
+@media (max-width: 481px) {
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    .route-card-holder {
+        flex-direction: column;
+    }
+    .fc-inner{
+        display: grid;
+        grid-template-columns: none;
+        grid-gap: 24px;
+        gap: 24px;
+    }
+}
